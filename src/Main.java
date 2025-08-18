@@ -21,7 +21,7 @@ public class GradeCalculator {
        
     }
     public static void displayResult(String studentName, double average, String letterGrade) {
-        System.out.print("Student: " + studentName +", Average: " + average + ", Grade: " + letterGrade);
+        System.out.print("Student: " + studentName + ", Average: " + average + ", Grade: " + letterGrade);
  
     }
     public static void main(String[] args) {

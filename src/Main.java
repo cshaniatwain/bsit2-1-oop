@@ -9,7 +9,7 @@ public class LibraryManager {
         books = new ArrayList<>();
         scanner = new Scanner(System.in);
 
-        // Initialize with sample books
+        
         books.add("Java Programming");
         books.add("Web Development");
         books.add("Database Design");
@@ -53,7 +53,7 @@ public class LibraryManager {
             System.out.println("Book '" + title + "' added successfully!");
 
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage()); // 
+            System.out.println(e.getMessage());  
         } finally {
             System.out.println("Add book operation completed.");
         }

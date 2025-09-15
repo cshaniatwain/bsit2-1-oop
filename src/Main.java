@@ -1,14 +1,45 @@
-import java.util.Scanner;
-public class Main {
+public class Main{
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int totalNumber = 0;
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i + ": ");
-            int number = scanner.nextInt();
-            totalNumber += number; 
-        }
-        System.out.println("Total Number: " + totalNumber);
-        scanner.close();
+        System.out.println("Welcome to the Pet Clinic!");
+        System.out.println("============================");
+
+        // Create pets
+        Pet dog = new Dog("Buddy", 3);
+        Pet cat = new Cat("Whiskers", 2);
+        Pet bird = new Bird("Tweety", 1);
+
+        // Display pet info and sound
+        dog.displayInfo();
+        dog.makeSound();
+
+        System.out.println();
+        cat.displayInfo();
+        cat.makeSound();
+
+        System.out.println();
+        bird.displayInfo();
+        bird.makeSound();
+
+        System.out.println();
+
+        // Services
+        PetService service = new PetService();
+        System.out.println("Basic checkup: $" + service.calculateFee());
+        System.out.println("Checkup with vaccination: $" + service.calculateFee(true));
+        System.out.println("Full service: $" + service.calculateFee(true, true));
+        System.out.println("Emergency: $" + service.calculateFee("Emergency"));
+
+        System.out.println();
+
+        // Training
+        System.out.println("Training Session Started!");
+        System.out.println("=========================");
+        performTraining((Trainable) dog);
+        performTraining((Trainable) bird);
+    }
+
+    public static void performTraining(Trainable t) {
+        t.performTrick();
     }
 }
+

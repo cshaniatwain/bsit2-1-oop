@@ -3,12 +3,10 @@ public class Main{
         System.out.println("Welcome to the Pet Clinic!");
         System.out.println("============================");
 
-        // Create pets
         Pet dog = new Dog("Buddy", 3);
         Pet cat = new Cat("Whiskers", 2);
         Pet bird = new Bird("Tweety", 1);
 
-        // Display pet info and sound
         dog.displayInfo();
         dog.makeSound();
 
@@ -22,7 +20,6 @@ public class Main{
 
         System.out.println();
 
-        // Services
         PetService service = new PetService();
         System.out.println("Basic checkup: $" + service.calculateFee());
         System.out.println("Checkup with vaccination: $" + service.calculateFee(true));
@@ -31,7 +28,6 @@ public class Main{
 
         System.out.println();
 
-        // Training
         System.out.println("Training Session Started!");
         System.out.println("=========================");
         performTraining((Trainable) dog);

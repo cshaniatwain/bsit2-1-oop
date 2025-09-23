@@ -1,14 +1,41 @@
-import java.util.Scanner;
-public class Main {
+public class LibrarySystem {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int totalNumber = 0;
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i + ": ");
-            int number = scanner.nextInt();
-            totalNumber += number; 
-        }
-        System.out.println("Total Number: " + totalNumber);
-        scanner.close();
+
+        System.out.println("=== Library Management System ===\n");
+        
+        Media book1 = new Book("Java Fundamentals", "B001", "Robert Martin");
+        Media dvd1 = new DVD("OOP Concepts", "D001", "Tech Films");
+        Media mag1 = new Magazine("Programming Weekly", "M001", 15);
+        
+        LibraryUser student = new Student("Alice Johnson", "S12345");
+        LibraryUser teacher = new Teacher("Dr. Smith", "T001");
+        LibraryUser librarian = new Librarian("Mary Brown", "L001");
+        
+        System.out.println("\nAvailable Media:");
+        displayMediaInfo(book1);
+        displayMediaInfo(dvd1);
+        displayMediaInfo(mag1);
+        
+        System.out.println("\n=== Borrowing Test ===");
+        student.borrowMedia(book1);
+        teacher.borrowMedia(dvd1);
+        student.borrowMedia(book1); // Should fail - already borrowed
+        
+        System.out.println("\n=== Returning Test ===");
+        student.returnMedia(book1); // Return the book
+        librarian.borrowMedia(book1); // Librarian borrows the book
+
+        System.out.println("\n=== User Information ===");
+        displayUserInfo(student);
+        displayUserInfo(teacher);
+        displayUserInfo(librarian);
+    }
+
+    public static void displayMediaInfo(Media media) {
+        media.displayInfo();
+    }
+
+    public static void displayUserInfo(LibraryUser user) {
+        System.out.println(user.getUserType() + " - Max borrow limit: " + user.getMaxBorrowLimit() + " items");
     }
 }
